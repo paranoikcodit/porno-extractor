@@ -1,0 +1,12 @@
+[package]
+name = "extractor-core"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+async-trait.workspace = true
+anyhow.workspace = true
+chrono.workspace = true
+scraper.workspace = true
