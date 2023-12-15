@@ -3,6 +3,10 @@ name = "porno-extractor"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+name = "porno_extractor"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
 [workspace]
 members = ["crates/*"]
 resolver = "2"
