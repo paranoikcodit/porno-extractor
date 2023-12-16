@@ -12,3 +12,4 @@ chrono.workspace = true
 scraper.workspace = true
 serde.workspace = true
 serde_with.workspace = true
+enum_dispatch.workspace = true

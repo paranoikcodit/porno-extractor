@@ -23,6 +23,7 @@ chrono = "0.4"
 scraper = "0.18.1"
 regex = "1.10.2"
 serde_with = { version = "3.4.0", features = ["chrono_0_4"] }
+enum_dispatch = "0.3.12"
 
 [dependencies]
 xvideos-extractor = { path = "./crates/xvideos-extractor" }

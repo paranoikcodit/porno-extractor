@@ -65,6 +65,7 @@ pub enum PageType {
     Main,
 }
 
+#[enum_dispatch::enum_dispatch]
 pub trait Extractor: Sized + Sync + Send
 where
     Self: Sized,
