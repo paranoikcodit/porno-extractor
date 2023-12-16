@@ -982,6 +982,7 @@ dependencies = [
 name = "porno-extractor"
 version = "0.1.0"
 dependencies = [
+ "enum_dispatch",
  "extractor-core",
  "pornhub-extractor",
  "xvideos-extractor",

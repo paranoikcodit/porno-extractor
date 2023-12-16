@@ -1,13 +1,13 @@
 use extractor_core::Extractor;
 
 #[derive(Default)]
-pub struct Pornhub {
+pub struct PornhubExtractor {
     pub client: reqwest::Client,
 }
 
-impl Pornhub {}
+impl PornhubExtractor {}
 
-impl Extractor for Pornhub {
+impl Extractor for PornhubExtractor {
     async fn get_search_variants(
         &self,
         query: &str,

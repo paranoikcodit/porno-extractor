@@ -29,4 +29,5 @@ enum_dispatch = "0.3.12"
 xvideos-extractor = { path = "./crates/xvideos-extractor" }
 extractor-core = { path = "./crates/extractor-core" }
 pornhub-extractor = { path = "./crates/pornhub-extractor" }
+enum_dispatch.workspace = true
 # xvideos-extractor = {path = "./crates/xvideos-extractor"}
