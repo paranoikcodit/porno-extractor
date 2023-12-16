@@ -1,6 +1,6 @@
 use extractor_core::Extractor;
 
-#[derive(Default)]
+#[derive(Default, Clone)]
 pub struct PornhubExtractor {
     pub client: reqwest::Client,
 }
