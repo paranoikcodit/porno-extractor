@@ -1,11 +1,13 @@
 pub use extractor_core::{Extractor, Model, PageType, SearchResult, Video, VideoPreview};
 pub use pornhub_extractor;
+use pornhub_extractor::PornhubExtractor;
 pub use xvideos_extractor;
+use xvideos_extractor::XvideoExtractor;
 
 #[enum_dispatch::enum_dispatch(Extractor)]
 pub enum Extractors {
-    XVideos(xvideos_extractor::XvideoExtractor),
-    Pornhub(pornhub_extractor::PornhubExtractor),
+    XVideos(XvideoExtractor),
+    Pornhub(PornhubExtractor),
 }
 
 impl Clone for Extractors {
