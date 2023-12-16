@@ -1,6 +1,10 @@
+#![feature(associated_type_defaults)]
+
 use chrono::Duration;
 use serde::{Deserialize, Serialize};
 use serde_with::serde_as;
+
+pub use anyhow;
 
 #[macro_export]
 macro_rules! select {
@@ -65,31 +69,14 @@ pub enum PageType {
     Main,
 }
 
+type MyResult<T> = anyhow::Result<T>;
+
 #[enum_dispatch::enum_dispatch]
-pub trait Extractor: Sized + Sync + Send
-where
-    Self: Sized,
-{
-    fn get_search_variants(
-        &self,
-        query: &str,
-    ) -> impl std::future::Future<Output = anyhow::Result<SearchResult>> + Send;
-    fn get_recommendations(
-        &self,
-        video_id: &str,
-    ) -> impl std::future::Future<Output = anyhow::Result<Vec<VideoPreview>>> + Send;
-    fn get_video(
-        &self,
-        video_id: &str,
-    ) -> impl std::future::Future<Output = anyhow::Result<Video>> + Send;
+pub trait Extractor {
+    async fn get_search_variants(&self, query: &str) -> MyResult<SearchResult>;
+    async fn get_recommendations(&self, video_id: &str) -> MyResult<Vec<VideoPreview>>;
+    async fn get_video(&self, video_id: &str) -> MyResult<Video>;
     // async fn get_videos_model(&self, model: &str) -> anyhow::Result<Vec<Video>>;
-    fn get_videos_page(
-        &self,
-        page: u16,
-        page_type: PageType,
-    ) -> impl std::future::Future<Output = anyhow::Result<Vec<VideoPreview>>> + Send;
-    fn get_model(
-        &self,
-        model: &str,
-    ) -> impl std::future::Future<Output = anyhow::Result<Model>> + Send;
+    async fn get_videos_page(&self, page: u16, page_type: PageType) -> MyResult<Vec<VideoPreview>>;
+    async fn get_model(&self, model: &str) -> MyResult<Model>;
 }

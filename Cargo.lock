@@ -286,8 +286,7 @@ dependencies = [
 [[package]]
 name = "enum_dispatch"
 version = "0.3.12"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8f33313078bb8d4d05a2733a94ac4c2d8a0df9a2b84424ebf4f33bfc224a890e"
+source = "git+https://gitlab.com/antonok/enum_dispatch.git#38d9dd504c5dee5a8df350e969e3dbfca2ea94a1"
 dependencies = [
  "once_cell",
  "proc-macro2",
