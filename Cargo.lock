@@ -886,6 +886,7 @@ version = "0.1.0"
 name = "porno-extractor"
 version = "0.1.0"
 dependencies = [
+ "extractor-core",
  "xvideos-extractor",
 ]
 

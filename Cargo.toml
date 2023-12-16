@@ -26,4 +26,5 @@ regex = "1.10.2"
 
 [dependencies]
 xvideos-extractor = { path = "./crates/xvideos-extractor" }
+extractor-core = { path = "./crates/extractor-core" }
 # xvideos-extractor = {path = "./crates/xvideos-extractor"}
