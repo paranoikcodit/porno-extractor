@@ -261,6 +261,7 @@ dependencies = [
  "async-trait",
  "chrono",
  "scraper",
+ "serde",
 ]
 
 [[package]]

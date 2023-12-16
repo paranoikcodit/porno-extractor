@@ -1,5 +1,6 @@
 pub use async_trait::async_trait;
 use chrono::Duration;
+use serde::{Deserialize, Serialize};
 
 #[macro_export]
 macro_rules! select {
@@ -8,14 +9,14 @@ macro_rules! select {
     };
 }
 
-#[derive(Clone, Default)]
+#[derive(Clone, Default, Serialize, Deserialize)]
 pub struct Model {
     pub name: String,
     pub avatar_url: String,
     pub description: String,
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct VideoPreview {
     pub id: String,
     pub title: String,
@@ -23,7 +24,7 @@ pub struct VideoPreview {
     pub duration: String,
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Video {
     pub id: String,
     pub thumbnail_url: String,
@@ -48,7 +49,7 @@ impl Default for Video {
     }
 }
 
-#[derive(Clone, Default)]
+#[derive(Clone, Default, Serialize, Deserialize)]
 pub struct SearchResult {
     pub channels: Vec<String>,
     // pub models: Vec<String>,
