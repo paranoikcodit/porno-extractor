@@ -27,4 +27,5 @@ serde_with = { version = "3.4.0", features = ["chrono_0_4"] }
 [dependencies]
 xvideos-extractor = { path = "./crates/xvideos-extractor" }
 extractor-core = { path = "./crates/extractor-core" }
+pornhub-extractor = { path = "./crates/pornhub-extractor" }
 # xvideos-extractor = {path = "./crates/xvideos-extractor"}
