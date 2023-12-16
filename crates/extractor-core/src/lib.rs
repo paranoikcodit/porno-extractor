@@ -1,4 +1,3 @@
-pub use async_trait::async_trait;
 use chrono::Duration;
 use serde::{Deserialize, Serialize};
 use serde_with::serde_as;
@@ -66,16 +65,27 @@ pub enum PageType {
     Main,
 }
 
-#[async_trait(?Send)]
 pub trait Extractor {
-    async fn get_search_variants(&self, query: &str) -> anyhow::Result<SearchResult>;
-    async fn get_recommendations(&self, video_id: &str) -> anyhow::Result<Vec<VideoPreview>>;
-    async fn get_video(&self, video_id: &str) -> anyhow::Result<Video>;
+    fn get_search_variants(
+        &self,
+        query: &str,
+    ) -> impl std::future::Future<Output = anyhow::Result<SearchResult>> + Send;
+    fn get_recommendations(
+        &self,
+        video_id: &str,
+    ) -> impl std::future::Future<Output = anyhow::Result<Vec<VideoPreview>>> + Send;
+    fn get_video(
+        &self,
+        video_id: &str,
+    ) -> impl std::future::Future<Output = anyhow::Result<Video>> + Send;
     // async fn get_videos_model(&self, model: &str) -> anyhow::Result<Vec<Video>>;
-    async fn get_videos_page(
+    fn get_videos_page(
         &self,
         page: u16,
         page_type: PageType,
-    ) -> anyhow::Result<Vec<VideoPreview>>;
-    async fn get_model(&self, model: &str) -> anyhow::Result<Model>;
+    ) -> impl std::future::Future<Output = anyhow::Result<Vec<VideoPreview>>> + Send;
+    fn get_model(
+        &self,
+        model: &str,
+    ) -> impl std::future::Future<Output = anyhow::Result<Model>> + Send;
 }

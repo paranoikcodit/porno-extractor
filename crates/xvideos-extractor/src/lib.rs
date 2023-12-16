@@ -1,8 +1,6 @@
 use anyhow::anyhow;
 use chrono::Duration;
-use extractor_core::{
-    async_trait, select, Extractor, Model, PageType, SearchResult, Video, VideoPreview,
-};
+use extractor_core::{select, Extractor, Model, PageType, SearchResult, Video, VideoPreview};
 use scraper::{Html, Selector};
 use serde_json::Value;
 use types::{channel::ChannelVideos, search::SearchSuggest, XvConfData};
@@ -126,7 +124,7 @@ impl XvideoExtractor {
     }
 }
 
-#[async_trait(?Send)]
+// #[async_trait(?Send)]
 impl Extractor for XvideoExtractor {
     async fn get_recommendations(&self, video_id: &str) -> anyhow::Result<Vec<VideoPreview>> {
         let body = self
