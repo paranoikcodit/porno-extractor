@@ -65,7 +65,10 @@ pub enum PageType {
     Main,
 }
 
-pub trait Extractor {
+pub trait Extractor: Sized + Sync + Send
+where
+    Self: Sized,
+{
     fn get_search_variants(
         &self,
         query: &str,
