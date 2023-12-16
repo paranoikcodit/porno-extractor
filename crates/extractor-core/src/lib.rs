@@ -1,6 +1,7 @@
 pub use async_trait::async_trait;
 use chrono::Duration;
 use serde::{Deserialize, Serialize};
+use serde_with::serde_as;
 
 #[macro_export]
 macro_rules! select {
@@ -24,11 +25,13 @@ pub struct VideoPreview {
     pub duration: String,
 }
 
+#[serde_as]
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Video {
     pub id: String,
     pub thumbnail_url: String,
     pub video_url: String,
+    #[serde_as(as = "serde_with::DurationSeconds<i64>")]
     pub duration: Duration,
     pub description: String,
     pub model: String,
