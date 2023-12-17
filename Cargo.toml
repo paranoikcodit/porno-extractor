@@ -3,20 +3,12 @@ name = "porno-extractor"
 version = "0.1.0"
 edition = "2021"
 
-[lib]
-name = "porno_extractor"
-crate-type = ["staticlib", "cdylib", "rlib"]
 
-[workspace]
-members = ["crates/*"]
-resolver = "2"
-
-[workspace.dependencies]
+[dependencies]
 async-trait = "0.1.74"
 tokio = { version = "1.35.0", features = ["full"] }
 reqwest = { version = "0.11.22", features = ["json"] }
 serde = { version = "1.0.193", features = ["derive"] }
-extractor-core = { path = "./crates/extractor-core" }
 serde_json = "1.0.108"
 anyhow = "1.0.75"
 chrono = "0.4"
@@ -25,11 +17,3 @@ regex = "1.10.2"
 serde_with = { version = "3.4.0", features = ["chrono_0_4"] }
 enum_dispatch = { git = "https://gitlab.com/antonok/enum_dispatch.git" }
 enum_delegate = { git = "https://gitlab.com/dawn_app/enum_delegate.git", branch = "kiss-rewrite" }
-
-[dependencies]
-xvideos-extractor = { path = "./crates/xvideos-extractor" }
-extractor-core = { path = "./crates/extractor-core" }
-pornhub-extractor = { path = "./crates/pornhub-extractor" }
-enum_dispatch.workspace = true
-enum_delegate.workspace = true
-# xvideos-extractor = {path = "./crates/xvideos-extractor"}

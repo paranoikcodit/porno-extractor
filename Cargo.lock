@@ -331,20 +331,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "extractor-core"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "async-trait",
- "chrono",
- "enum_delegate",
- "enum_dispatch",
- "scraper",
- "serde",
- "serde_with",
-]
-
-[[package]]
 name = "fastrand"
 version = "2.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -990,23 +976,21 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "26072860ba924cbfa98ea39c8c19b4dd6a4a25423dbdf219c1eca91aa0cf6964"
 
 [[package]]
-name = "pornhub-extractor"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "extractor-core",
- "reqwest",
-]
-
-[[package]]
 name = "porno-extractor"
 version = "0.1.0"
 dependencies = [
+ "anyhow",
+ "async-trait",
+ "chrono",
  "enum_delegate",
  "enum_dispatch",
- "extractor-core",
- "pornhub-extractor",
- "xvideos-extractor",
+ "regex",
+ "reqwest",
+ "scraper",
+ "serde",
+ "serde_json",
+ "serde_with",
+ "tokio",
 ]
 
 [[package]]
@@ -1990,21 +1974,6 @@ checksum = "524e57b2c537c0f9b1e69f1965311ec12182b4122e45035b1508cd24d2adadb1"
 dependencies = [
  "cfg-if",
  "windows-sys 0.48.0",
-]
-
-[[package]]
-name = "xvideos-extractor"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "chrono",
- "extractor-core",
- "regex",
- "reqwest",
- "scraper",
- "serde",
- "serde_json",
- "tokio",
 ]
 
 [[package]]

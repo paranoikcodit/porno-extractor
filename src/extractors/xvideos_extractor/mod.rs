@@ -1,11 +1,15 @@
 use anyhow::anyhow;
 use chrono::Duration;
-use extractor_core::{select, Extractor, Model, PageType, SearchResult, Video, VideoPreview};
+// use extractor_core::{select, Extractor, Model, PageType, SearchResult, Video, VideoPreview};
 use scraper::{Html, Selector};
 use serde_json::Value;
 use types::{channel::ChannelVideos, search::SearchSuggest, XvConfData};
 
-use crate::types::VideoData;
+use crate::{select, Extractor, Model, PageType, SearchResult, Video, VideoPreview};
+
+use self::types::VideoData;
+
+// use cratetypes::VideoData;
 
 pub mod types;
 
@@ -308,8 +312,8 @@ impl Extractor for XvideoExtractor {
 
 #[cfg(test)]
 mod tests {
-    use crate::XvideoExtractor;
-    use extractor_core::{Extractor, PageType};
+    use crate::{Extractor, PageType, XvideoExtractor};
+    // use extractor_core::{Extractor, PageType};
 
     #[tokio::test]
     async fn get_recommendations_test() {
