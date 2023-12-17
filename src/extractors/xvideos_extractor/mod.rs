@@ -49,12 +49,7 @@ impl XvideoExtractor {
             .filter_map(|element| {
                 if let Some(link) = element.select(&select!("* > p.title > a")).next() {
                     let title = link.attr("title").unwrap().to_string();
-                    let video_id = link
-                        .attr("href")
-                        .unwrap()
-                        .replace("/", "")
-                        .replace("_", "")
-                        .replace("-", "");
+                    let video_id = element.attr("id").unwrap().replace("_", "");
 
                     let duration = element
                         .select(&select!("* > .duration"))
