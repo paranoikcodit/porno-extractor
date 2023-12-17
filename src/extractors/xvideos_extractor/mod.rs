@@ -59,10 +59,10 @@ impl XvideoExtractor {
                         .collect::<String>();
 
                     let thumb_url = element
-                        .select(&select!(".thumb > a"))
+                        .select(&select!(".thumb > a > img"))
                         .next()
                         .unwrap()
-                        .attr("href")
+                        .attr("src")
                         .unwrap();
 
                     Some(VideoPreview {
