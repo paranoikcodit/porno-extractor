@@ -62,7 +62,7 @@ impl XvideoExtractor {
                         .select(&select!(".thumb > a > img"))
                         .next()
                         .unwrap()
-                        .attr("src")
+                        .attr("data-src")
                         .unwrap();
 
                     Some(VideoPreview {
